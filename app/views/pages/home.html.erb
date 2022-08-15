@@ -1,2 +1,13 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Books BnB</h1>
+      <hr class="hero-hr">
+      <h3>A space for sharing your favourites reads</h3>
+      <div class="buttons mt-5">
+        <%= link_to 'Register', new_user_registration_path, class: "signup-btn" %>
+        <%= link_to 'Sign In', new_user_session_path, class: "signin-btn" %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,45 @@
 // Specific CSS for your home-page
+// use this photo as background image https://images.unsplash.com/photo-1614791962365-7590111b1b1c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80
+
+.hero {
+  // add a linear-gradient dark overlay to background image
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(https://images.unsplash.com/photo-1614791962365-7590111b1b1c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  color: rgb(229, 229, 229);
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.3rem;
+  margin-top: 2rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.hero h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.hero-hr {
+  width: 50%;
+  border: 1px solid $red;
+  margin: 0 auto;
+  margin-top: 1rem;
+}

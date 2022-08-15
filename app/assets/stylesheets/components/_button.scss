@@ -1,0 +1,39 @@
+.buttons {
+  .signup-btn {
+    display: inline-block;
+    padding: 0.25em 1em;
+    margin-right: 1em;
+    color: $red;
+    border: 0.125em solid $red;
+    border-radius: 0.25em;
+    font-size: 1.25em;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 0.25em;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      color: #ea484e;
+      border-color: #ea484e;
+      cursor: pointer;
+    }
+  }
+
+  .signin-btn {
+    display: inline-block;
+    padding: 0.25em 1em;
+    margin-right: 1em;
+    color: $red;
+    border: 0.125em solid $red;
+    border-radius: 0.25em;
+    font-size: 1.25em;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 0.25em;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      color: #ea484e;
+      border-color: #ea484e;
+      cursor: pointer;
+    }
+  }
+}
