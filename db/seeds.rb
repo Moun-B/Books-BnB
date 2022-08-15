@@ -22,6 +22,6 @@ end
     price: rand(100..500),
     user_id: 1,
     book_id: rand(1..20)
-)
+  )
 end
 puts "#{Book.count} and #{Offer.count} created !"
