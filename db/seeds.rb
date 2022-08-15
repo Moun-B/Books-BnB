@@ -6,9 +6,6 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-puts "Destroying the database..."
-Book.destroy_all
-Offer.destroy_all
 puts "Creating books..."
 20.times do
   Book.create!(
@@ -19,4 +16,12 @@ puts "Creating books..."
     isbn: Faker::Code.isbn
   )
 end
-puts "#{Book.count} created !"
+
+10.times do
+  Offer.create!(
+    price: rand(100..500),
+    user_id: 1,
+    book_id: rand(1..20)
+)
+end
+puts "#{Book.count} and #{Offer.count} created !"
