@@ -19,20 +19,30 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_15_071615) do
     t.integer "year"
     t.string "isbn"
     t.string "author"
-    t.float "price"
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "rentals", force: :cascade do |t|
-    t.date "duration_start"
-    t.date "duration_end"
+  create_table "offers", force: :cascade do |t|
+    t.float "price"
     t.bigint "book_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_rentals_on_book_id"
+    t.index ["book_id"], name: "index_offers_on_book_id"
+    t.index ["user_id"], name: "index_offers_on_user_id"
+  end
+
+  create_table "rentals", force: :cascade do |t|
+    t.date "duration_start"
+    t.date "duration_end"
+    t.string "status"
+    t.bigint "offer_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["offer_id"], name: "index_rentals_on_offer_id"
     t.index ["user_id"], name: "index_rentals_on_user_id"
   end
 
@@ -62,7 +72,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_15_071615) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "rentals", "books"
+  add_foreign_key "offers", "books"
+  add_foreign_key "offers", "users"
+  add_foreign_key "rentals", "offers"
   add_foreign_key "rentals", "users"
   add_foreign_key "reviews", "books"
   add_foreign_key "reviews", "users"

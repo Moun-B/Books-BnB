@@ -8,6 +8,7 @@
 
 puts "Destroying the database..."
 Book.destroy_all
+Offer.destroy_all
 puts "Creating books..."
 20.times do
   Book.create!(
@@ -15,7 +16,6 @@ puts "Creating books..."
     author: Faker::Book.author,
     year: rand(1900..2022),
     category: Book::CATEGORIES.sample,
-    price: rand(100..500).truncate,
     isbn: Faker::Code.isbn
   )
 end
