@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: "pages#home"
 
-  devise_for :users [:show] do
+  devise_for :users, only: [:show] do
     resources :rentals, only: [:new, :create, :edit, :update]
   end
 
