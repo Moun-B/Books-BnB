@@ -1,4 +1,4 @@
 class Rental < ApplicationRecord
-  belongs_to :book
+  belongs_to :offer
   belongs_to :user
 end
