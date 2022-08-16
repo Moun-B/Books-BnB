@@ -79,3 +79,4 @@ end
 gem "devise"
 gem "faker"
 gem "pundit"
+gem 'cloudinary', '~> 1.12.0'
