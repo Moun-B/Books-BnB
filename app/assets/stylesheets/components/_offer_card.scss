@@ -54,3 +54,19 @@
   top: 18px;
   left: 20px;
 }
+
+#categories {
+  box-shadow: 0 0 20px #aaa;
+  margin-top: 25px;
+  height: 100%;
+  padding: 10px 10px 0 10px;
+  border-radius: 11px;
+}
+
+.category-list-item {
+  padding: 16px;
+  background-color: #6d757d;
+  border-radius: 50px;
+  color: white;
+  text-align: center;
+}
