@@ -1,0 +1,37 @@
+<%# <div class="container">
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <div class="container">
+          <img src="https://images-na.ssl-images-amazon.com/images/I/A1fS8mAs8nL.jpg" alt="book-cover">
+        </div>
+        <div class="container">
+        </div>
+      </div>
+      <div class="col-4"></div>
+    </div>
+  </div>
+</div> %>
+<div class="container">
+  <div class="row gx-5 justify-content-center">
+    <div class="offer-card-show col-8">
+      <img src="https://images-na.ssl-images-amazon.com/images/I/A1fS8mAs8nL.jpg" alt="book-cover" class="cover">
+      <div class="offer-card-show-info">
+        <h2 class="border-bottom py-3"><%= @offer.book.title %></h2>
+        <p class="description"><%= @offer.book.year %></p>
+        <p><%= @offer.book.category %></p>
+        <p>⭐️⭐️⭐️⭐️⭐️</p>
+        <p>By (author) <%= @offer.book.author %></p>
+        <p class="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi nulla corporis est magnam nemo quis in aliquam repellat minus eius, praesentium voluptas beatae pariatur itaque voluptate laudantium, reiciendis iusto eveniet.
+          Nostrum doloremque neque blanditiis eum officia. Ullam quas totam, numquam architecto omnis, pariatur repellendus possimus vel fuga saepe, nostrum est. Ut, maxime provident? Sed facere molestias qui cupiditate tempore. Eos.
+          Obcaecati beatae sit ex eveniet unde enim atque. Possimus eveniet nihil voluptatem veniam maiores placeat, ab at, repellat distinctio mollitia totam. Vitae esse dolore harum eius doloribus culpa sit et.</p>
+      </div>
+    </div>
+    <div class="rental  d-grid gap-2 col-3 ms-3">
+      <p class="border-bottom">Price: <span class="price">¥500</span></p>
+      <p>Duration_Start</p>
+      <p>Duration_End</p>
+      <a class="btn btn-primary btn-lg" href="#">Rent!</a>
+    </div>
+  </div>
+</div>

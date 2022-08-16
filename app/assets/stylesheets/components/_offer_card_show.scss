@@ -1,0 +1,58 @@
+.offer-card-show {
+  overflow: hidden;
+  height: 480px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: flex-start;
+}
+
+.offer-card-show img {
+  height: 100%;
+  width: 320px;
+  object-fit: cover;
+  padding: 16px;
+  border: none;
+}
+
+.offer-card-show h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.offer-card-show p {
+  font-size: 16px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.offer-card-show .description {
+  font-size: 12px;
+}
+
+.offer-card-show .offer-card-show-info {
+  padding: 16px;
+  flex: 1;
+}
+
+.rental {
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  .price {
+    font-weight: bold;
+    font-size: 24px;
+  }
+
+  span {
+    color: rgb(71, 128, 236);
+  }
+}
