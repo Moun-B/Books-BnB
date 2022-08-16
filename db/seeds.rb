@@ -1,10 +1,13 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+# Books, Users, Offers, Rentals
+
+puts "Seeding database..."
+
+puts "Creating users..."
+User.create!(email: "kyle@books.com", password: "password", first_name: "Kyle", last_name: "Bokktastic")
+User.create!(email: "mounir@books.com", password: "password", first_name: "Mounir", last_name: "Booksalot")
+User.create!(email: "souffiane@books.com", password: "password", first_name: "Souffiane", last_name: "Booker")
+User.create!(email: "mark@books.com", password: "password", first_name: "Mark", last_name: "Bookman")
+puts "Created #{User.count} users!"
 
 puts "Creating books..."
 20.times do
@@ -16,12 +19,23 @@ puts "Creating books..."
     isbn: Faker::Code.isbn
   )
 end
+puts "Created #{Book.count} books!"
 
 10.times do
-  Offer.create!(
-    price: rand(100..500),
-    user_id: 1,
-    book_id: rand(1..20)
-  )
+  User.all.each do |user|
+    user.books << Book.all.sample
+  end
 end
-puts "#{Book.count} and #{Offer.count} created !"
+
+puts "Created #{User.first.books.count} books for #{User.first.email}!"
+
+# create offers and rentals
+puts "Creating offers and rentals..."
+User.all.each do |user|
+  user.books.each do |book|
+    Offer.create!(user: user, book: book)
+    Rental.create!(user: user, offer: Offer.find_by(user: user, book: book))
+  end
+end
+
+puts "Created #{Offer.count} offers and #{Rental.count} rentals!"
