@@ -1,0 +1,28 @@
+.dashboard-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  text-align: center;
+}
+
+.dashboard-card img {
+	margin-top: 16px;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    }
+
+.dashboard-card-title {
+  color: grey;
+  font-size: 18px;
+}
+
+.dashboard-card a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+.dashboard-card button:hover, .dashboard-card a:hover {
+  opacity: 0.7;
+}
