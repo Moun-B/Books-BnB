@@ -42,17 +42,20 @@
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
+  height: 400px;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: space-around;
 
   .price {
+    font-size: 32px;
     font-weight: bold;
-    font-size: 24px;
+    color: #FF5A5E;
   }
 
-  span {
-    color: rgb(71, 128, 236);
+  .rental-button {
+    background-color: #FF5A5E;
+    color: white;
   }
 }
