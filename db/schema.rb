@@ -78,4 +78,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_15_071615) do
   add_foreign_key "rentals", "users"
   add_foreign_key "reviews", "books"
   add_foreign_key "reviews", "users"
+
 end
