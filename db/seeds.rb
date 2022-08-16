@@ -1,6 +1,10 @@
 # Books, Users, Offers, Rentals
 
-puts "Seeding database..."
+puts "Destroying database..."
+User.destroy_all
+Book.destroy_all
+Offer.destroy_all
+Rental.destroy_all
 
 puts "Creating users..."
 User.create!(email: "kyle@books.com", password: "password", first_name: "Kyle", last_name: "Bokktastic")
@@ -21,21 +25,27 @@ puts "Creating books..."
 end
 puts "Created #{Book.count} books!"
 
+# Create offers that have many rentals and belongs_to a book and a user
+puts "Creating offers..."
 10.times do
-  User.all.each do |user|
-    user.books << Book.all.sample
-  end
+  Offer.create!(
+    price: rand(100..999),
+    book: Book.all.sample,
+    user: User.all.sample
+  )
 end
 
-puts "Created #{User.first.books.count} books for #{User.first.email}!"
+puts "Created #{Offer.count} offers!"
 
-# create offers and rentals
-puts "Creating offers and rentals..."
-User.all.each do |user|
-  user.books.each do |book|
-    Offer.create!(user: user, book: book)
-    Rental.create!(user: user, offer: Offer.find_by(user: user, book: book))
-  end
+puts "Creating rentals..."
+10.times do
+  Rental.create!(
+    duration_start: Faker::Date.between(from: Date.today, to: 1.month.from_now),
+    offer: Offer.all.sample,
+    user: User.all.sample
+  )
 end
 
-puts "Created #{Offer.count} offers and #{Rental.count} rentals!"
+puts "Created #{Rental.count} rentals!"
+
+puts "Seeding complete!"
