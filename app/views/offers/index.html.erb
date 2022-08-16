@@ -1,8 +1,8 @@
 <div class="container">
   <h3>Offers</h3>
   <div class="container">
-    <div class="row gap-5 flex-row">
-      <div class="col col-10 d-flex flex-wrap" id='offers'>
+    <div class="row">
+      <div class="col-9 d-flex flex-wrap" id='offers'>
         <% @offers.each do |offer| %>
           <div class="book d-flex flex-column">
             <div id='price-tag'>
@@ -19,8 +19,9 @@
           </div>
         <% end %>
       </div>
-      <div class="col col-2" id='catagories'>
-        <ul>
+      <div class="col-3" id='categories'>
+        <h3 class='mb-5 mt-3 text-center'>Categories</h3>
+        <ul class='d-flex flex-column gap-3 list-unstyled'>
           <li class="category-list-item">Thriller</li>
           <li class="category-list-item">Romance</li>
           <li class="category-list-item">Sci-Fi</li>
