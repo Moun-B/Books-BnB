@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @user = current_user
+    authorize @user
     if user_signed_in?
       @books = @user.books
       @rentals = @user.rentals
