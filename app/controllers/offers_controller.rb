@@ -1,6 +1,6 @@
 class OffersController < ApplicationController
   def index
-    @offers = Offer.all
+    @offers = policy_scope(Offer)
   end
 
   def show
