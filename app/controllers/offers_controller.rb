@@ -5,6 +5,7 @@ class OffersController < ApplicationController
 
   def show
     @offer = Offer.find(params[:id])
+    @rental = Rental.new
     authorize @offer
   end
 end
