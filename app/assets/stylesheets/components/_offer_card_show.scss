@@ -4,7 +4,7 @@
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .offer-card-show img {
@@ -45,5 +45,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+
+  .price {
+    font-weight: bold;
+    font-size: 24px;
+  }
+
+  span {
+    color: rgb(71, 128, 236);
+  }
 }
