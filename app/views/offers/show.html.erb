@@ -1,0 +1,34 @@
+<%# <div class="container">
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <div class="container">
+          <img src="https://images-na.ssl-images-amazon.com/images/I/A1fS8mAs8nL.jpg" alt="book-cover">
+        </div>
+        <div class="container">
+        </div>
+      </div>
+      <div class="col-4"></div>
+    </div>
+  </div>
+</div> %>
+<div class="container">
+  <div class="row gx-5 justify-content-center">
+    <div class="offer-card-show col-8">
+      <img src="https://images-na.ssl-images-amazon.com/images/I/A1fS8mAs8nL.jpg" alt="book-cover" class="cover">
+      <div class="offer-card-show-info">
+        <h2><%= @offer.book.title %></h2>
+        <p><%= @offer.book.category %></p>
+        <p>⭐️⭐️⭐️⭐️⭐️</p>
+        <p><%= @offer.book.author %></p>
+        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime in delectus quos dolores, dolor unde non explicabo excepturi laboriosam qui pariatur deleniti dolore totam fuga voluptate eveniet dicta asperiores tempore.</p>
+      </div>
+    </div>
+    <div class="rental col-3 ms-3">
+      <p>Price: ¥500</p>
+      <p>Duration_Start</p>
+      <p>Duration_End</p>
+      <a class="btn btn-primary" href="#">Rent!</a>
+    </div>
+  </div>
+</div>
