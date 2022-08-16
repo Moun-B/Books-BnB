@@ -1,0 +1,31 @@
+<div class="container">
+  <h3>Offers</h3>
+  <div class="container">
+    <div class="row gap-5 flex-row">
+      <div class="col col-10 d-flex flex-wrap" id='offers'>
+        <% @offers.each do |offer| %>
+          <div class="book d-flex flex-column">
+            <div id='price-tag'>
+              <span>¥ <%= offer.price.to_i %></span>
+            </div>
+            <div class="cover">
+              <img src="https://s-media-cache-ak0.pinimg.com/564x/f9/8e/2d/f98e2d661445620266c0855d418aab71.jpg">
+            </div>
+            <div class="description">
+              <p class="title"><%= offer.book.title %><br>
+                <span class="author"><%= offer.book.author %></span></p>
+            </div>
+            <%= link_to 'Check Offer', offer_path(offer), class: 'btn btn-secondary mb-3 rounded' %>
+          </div>
+        <% end %>
+      </div>
+      <div class="col col-2" id='catagories'>
+        <ul>
+          <li class="category-list-item">Thriller</li>
+          <li class="category-list-item">Romance</li>
+          <li class="category-list-item">Sci-Fi</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
