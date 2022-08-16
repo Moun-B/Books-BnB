@@ -6,11 +6,10 @@ Rails.application.routes.draw do
     resources :rentals, only: [:new, :create, :edit, :update]
   end
 
-  resources :books, only: [:show, :new, :create, :edit, :update] do
+  resources :books, only: [:show, :new, :create, :edit, :update, :destroy] do
     resources :reviews, only: [:new, :create, :edit, :update]
   end
 
-  resources :books, only: [:destroy]
   resources :rentals, only: [:destroy]
   resources :reviews, only: [:destroy]
 end

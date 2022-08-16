@@ -1,0 +1,10 @@
+<h1>
+  <%= @book.title %>
+</h1>
+<h2>Edit</h2>
+<%= link_to 'edit', edit_book_path(@book) %>
+<h2>Destroy</h2>
+<%= link_to 'Delete',
+  book_path(@book),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+  class: 'btn btn-danger'%>
