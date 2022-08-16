@@ -17,9 +17,17 @@ $info:       $yellow;
 $danger:     $red;
 $warning:    $orange;
 
+// Custom Colors
+$gray-active: #5c636a;
+
 // Buttons & inputs' radius
 $border-radius:    2px;
 $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+
+// Tab custom colors
+$nav-pills-link-active-bg: $gray-active;
+$nav-link-color: $gray-active;
+$nav-link-hover-color: $gray;
