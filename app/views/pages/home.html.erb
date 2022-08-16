@@ -1,12 +1,23 @@
-<div class="hero">
-  <div class="container">
+<div class="container container-custom">
+  <div class="hero">
     <div class="hero-content">
       <h1>Books BnB</h1>
       <hr class="hero-hr">
       <h3>A space for sharing your favourites reads</h3>
-      <div class="buttons mt-5">
-        <%= link_to 'Register', new_user_registration_path, class: "signup-btn" %>
-        <%= link_to 'Sign In', new_user_session_path, class: "signin-btn" %>
+      <div class="card">
+        <div class="card-content p-3">
+          <div class="card-title">
+            <h4 class="card-title-header">Find a book to borrow...</h4>
+            <p>Discover new books or rediscover old favourites to read</p>
+          </div>
+          <%# input for search a book %>
+          <div class="card-action">
+            <input type="text" placeholder="Search a book">
+          </div>
+          <div class="buttons mt-5">
+          <a href="/books" class="btn btn-primary-red">Find a book</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
