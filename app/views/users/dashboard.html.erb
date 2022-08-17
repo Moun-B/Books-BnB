@@ -40,6 +40,7 @@
             <div class="description">
               <p class="title"><%= rental.offer.book.title %><br>
                 <span class="author"><%= rental.offer.book.author %></span><br>
+                <span class="author"><%= rental.duration_start <= Date.today ? "Rent already started" : "Your rent start in #{pluralize((rental.duration_start - Date.today).to_i, "day")}" %></span><br>
                 <span class="author"><%= pluralize((rental.duration_end - Date.today).to_i, "Day")%> left</span></p>
             </div>
           </div>
