@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :rentals
-  has_many :offers
+  has_many :offers, dependent: :destroy
   has_many :books, through: :offers
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 end
