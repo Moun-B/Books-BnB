@@ -5,6 +5,7 @@ class OffersController < ApplicationController
 
   def show
     @offer = Offer.find(params[:id])
+    @offers = policy_scope(Offer)
     @rental = Rental.new
     authorize @offer
   end

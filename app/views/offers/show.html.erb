@@ -37,5 +37,29 @@
       <% end %>
     </div>
   </div>
-</div>
-<%# ¥500 %>
+  <div class="container mt-5">
+    <h3 class="card-title-header">Similar Offers</h3>
+    <div class="container border rounded-3 overflow-auto">
+      <div class="row">
+        <div class="col-12 d-flex">
+          <% @offers.sample(6).each do |offer| %>
+            <div class="book d-flex flex-column">
+              <div id='price-tag'>
+                <span>¥ <%= offer.price.to_i %></span>
+              </div>
+              <div class="cover">
+                <%= image_tag offer.book.cover_url, alt: "#{offer.book.title} cover" %>
+                <%# <img src="https://s-media-cache-ak0.pinimg.com/564x/f9/8e/2d/f98e2d661445620266c0855d418aab71.jpg"> %>
+              </div>
+              <div class="description">
+                <p class="title"><%= offer.book.title %><br>
+                  <span class="author"><%= offer.book.author %></span></p>
+              </div>
+              <%= link_to 'Check Offer', offer_path(offer), class: 'check-btn btn mb-3 rounded' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%# ¥500 %>
