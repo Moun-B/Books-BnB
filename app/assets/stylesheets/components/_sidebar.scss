@@ -1,6 +1,7 @@
 .dashboard-card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
+  margin: 0 auto;
   text-align: center;
 }
 
@@ -25,4 +26,11 @@
 
 .dashboard-card button:hover, .dashboard-card a:hover {
   opacity: 0.7;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 24px;
+  margin-top: 16px;
 }
