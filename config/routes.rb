@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end
 
   resources :rentals, only: [:update]
+  get '/books/search', to: 'books#search', as: :booksearch
 end

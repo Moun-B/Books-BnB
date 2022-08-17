@@ -1,5 +1,11 @@
+require 'rest-client'
+
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
+  skip_after_action :verify_authorized
+
+  def index
+  end
 
   def show
   end
@@ -33,6 +39,17 @@ class BooksController < ApplicationController
     @book.destroy
     # not sure yet where the redirect should go to
     redirect_to root_path, status: :see_other
+  end
+
+  def search
+    query = params[:query].gsub(' ', '+')
+    url = "https://www.googleapis.com/books/v1/volumes?q=#{query}&maxResults=15&key=#{ENV['GOOGLE_API_KEY']}"
+    @json = JSON.parse(RestClient.get(url))['items']
+    # title : item['volumeInfo']['title']
+    # year : item['volumeInfo']['publishedDate'][0,4] -> string first 4 for year
+    # categories : item['volumeInfo']['categories'] -> array
+    # author : item['volumeInfo']['authors'] -> array
+    # isbn : item['volumeInfo']['industryIdentifiers'][0]['identifier'
   end
 
   private

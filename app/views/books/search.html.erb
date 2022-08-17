@@ -1,0 +1,19 @@
+<h1>Search</h1>
+<ul>
+  <% @json.each do |book| %>
+    <li>
+      <p>Title: <%= book['volumeInfo']['title'] %></p>
+      <% if book['volumeInfo']['publishedDate'] %>
+        <p>Year: <%= book['volumeInfo']['publishedDate'][0,4] %></p>
+      <% end %>
+      <p>Category: <%= book['volumeInfo']['categories'] %></p>
+      <p>Author: <%= book['volumeInfo']['authors']%></p>
+      <% if book['volumeInfo']['industryIdentifiers']%>
+        <p>isbn: <%= book['volumeInfo']['industryIdentifiers'][0]['identifier'] %></p>
+      <% end %>
+      <% if book['volumeInfo']['imageLinks'] %>
+        <%= image_tag book['volumeInfo']['imageLinks']['thumbnail'], alt: "text" %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

@@ -55,11 +55,15 @@
   left: 20px;
 }
 
-#categories {
+.check-btn {
+  background-color: #ff5a5f;
+}
+
+.side-section {
   box-shadow: 0 0 20px #aaa;
   margin-top: 25px;
   height: 100%;
-  padding: 10px 10px 0 10px;
+  padding: 10px;
   border-radius: 11px;
 }
 
