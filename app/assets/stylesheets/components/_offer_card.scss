@@ -1,9 +1,9 @@
 .book {
   position: relative;
   display: inline-block;
-  width: 230px;
-  height: 390px;
-  box-shadow: 0 0 20px #aaa;
+  width: 265px;
+  height: 520px;
+  box-shadow: 0 0 8px rgba(80, 79, 79, 0.158);
   margin: 25px;
   padding: 10px 10px 0 10px;
   vertical-align: top;
@@ -15,7 +15,7 @@
   }
 
   p {
-    margin-top: 12px;
+    margin: 16px 0;
     font-size: 20px;
     width: 250px;
     white-space: nowrap;
@@ -45,8 +45,30 @@
   }
 }
 
+.search-field {
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+.search-field:focus {
+  border: 1px solid $red;
+}
+
+.card-title-header {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-left: 35px;
+}
+
+hr {
+  margin-top: 18px;
+  margin-bottom: 24px;
+  color: $red;
+}
+
 .cover {
-  border: 2px solid gray;
   height: 80%;
   overflow: hidden;
 }
@@ -56,30 +78,44 @@
 }
 
 #price-tag {
-  position: absolute;
-  padding: 4px 16px;
-  background-color: #3aa73f;
-  border-radius: 50px;
-  top: 18px;
-  left: 20px;
-}
-
-.check-btn {
-  background-color: #ff5a5f;
+  color: #333;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .side-section {
-  box-shadow: 0 0 20px #aaa;
+  box-shadow: 0 0 8px rgba(80, 79, 79, 0.158);
   margin-top: 25px;
   height: 100%;
   padding: 10px;
   border-radius: 11px;
 }
 
+.side-section-header {
+  font-size: 28px;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
+  margin: 18px 6px;
+  padding-bottom: 10px;
+}
+
 .category-list-item {
-  padding: 16px;
-  background-color: #6d757d;
-  border-radius: 50px;
-  color: white;
+  font-size: 15px;
+  padding: 5px;
+  background-color: none;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  border: 2px solid $red;
+  color: $red;
   text-align: center;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+}
+
+.category-list-item:hover {
+  background-color: $red;
+  color: #f4f4f4;
+  cursor: pointer;
 }
