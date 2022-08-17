@@ -1,36 +1,38 @@
 <div class="container">
-  <h3 class="card-title-header">Offers</h3>
+  <h3 class="card-title-header">View All Offers</h3>
+  <hr>
   <div class="container">
     <div class="row">
       <div class="col-9 d-flex flex-wrap" id='offers'>
         <% @offers.each do |offer| %>
           <div class="book d-flex flex-column">
-            <div id='price-tag'>
-              <span>¥ <%= offer.price.to_i %></span>
-            </div>
             <div class="cover">
               <%= image_tag offer.book.cover_url, alt: "#{offer.book.title} cover" %>
               <%# <img src="https://s-media-cache-ak0.pinimg.com/564x/f9/8e/2d/f98e2d661445620266c0855d418aab71.jpg"> %>
             </div>
             <div class="description">
-              <p class="title"><%= offer.book.title %><br>
-                <span class="author"><%= offer.book.author %></span></p>
+              <p class="title">
+                <%= offer.book.title %><br>
+                <span class="author"><%= offer.book.author %></span>
+              </p>
             </div>
-            <%= link_to 'Check Offer', offer_path(offer), class: 'check-btn btn mb-3 rounded' %>
+            <div id='price-tag'>
+              <span>¥ <%= offer.price.to_i %></span>
+            </div>
+            <%= link_to 'Check Offer', offer_path(offer), class: 'btn btn-primary-red mt-3 mb-3' %>
           </div>
         <% end %>
       </div>
       <div class="col-3 h-100">
         <div class="side-section">
-          <h3 class="card-title-header">Rent one of yours</h3>
-          <p>Find your book</p>
+          <h3 class="side-section-header">Search Books</h3>
           <%= form_with url: booksearch_url, method: :get do |form| %>
-            <%= form.text_field :query, placeholder: 'Title, isbn . . .' %>
-            <%= form.submit "Find" %>
+            <%= form.text_field :query, placeholder: 'Search title, author, ISBN', class: "search-field" %>
+            <%= form.submit "Find", class: "btn btn-primary-red" %>
           <% end %>
         </div>
         <div class='side-section'>
-          <h3 class='card-title-header mb-5 mt-3 text-center'>Categories</h3>
+          <h3 class='side-section-header'>Browse by Category</h3>
           <ul class='d-flex flex-column gap-3 list-unstyled'>
             <li class="category-list-item">Thriller</li>
             <li class="category-list-item">Romance</li>
