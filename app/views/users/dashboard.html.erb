@@ -22,29 +22,26 @@
     <div class="col-sm-12 col-md-8">
       <ul class="nav nav-pills nav-fill">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">My offers</a>
+          <a class="nav-link" aria-current="page" href="#">My offers</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">My rentals</a>
+          <a class="nav-link active" href="#">My rentals</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">My books</a>
         </li>
       </ul>
       <div class="book-grid">
-        <% @offers.each do |offer| %>
+        <% @rentals.each do |rental| %>
           <div class="book book-dashboard d-flex flex-column">
-            <div id='price-tag'>
-              <span>¥ <%= offer.price.to_i %></span>
-            </div>
             <div class="cover">
-              <img src="https://s-media-cache-ak0.pinimg.com/564x/f9/8e/2d/f98e2d661445620266c0855d418aab71.jpg">
+              <%= image_tag rental.offer.book.cover_url, alt: "#{rental.offer.book.title} cover" %>
             </div>
             <div class="description">
-              <p class="title"><%= offer.book.title %><br>
-                <span class="author"><%= offer.book.author %></span></p>
+              <p class="title"><%= rental.offer.book.title %><br>
+                <span class="author"><%= rental.offer.book.author %></span><br>
+                <span class="author"><%= pluralize((rental.duration_end - Date.today).to_i, "Day")%> left</span></p>
             </div>
-            <%= link_to 'Check Offer', offer_path(offer), class: 'btn btn-secondary mb-3 rounded' %>
           </div>
         <% end %>
       </div>
