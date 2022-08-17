@@ -1,5 +1,31 @@
 # Books, Users, Offers, Rentals
 
+require 'rest-client'
+
+isbn13 = ['9780590353427',
+   '9780545029360',
+   '9788532519474',
+   '9780439136358',
+   '9780439139595',
+   '9780439064873',
+   '9789955084334',
+   '9780261102439',
+   '9780007637676',
+   '9780060281373',
+   '9781589942172',
+   '9782290019436',
+   '9780451168610',
+   '9788497898614',
+   '9781782010616',
+   '9781974725779',
+   '9781338185706',
+   '9781438470467',
+  #  '9780062491282',
+   '9781620104163',
+   '9780606375405'
+]
+status = []
+
 puts "Destroying database..."
 Offer.destroy_all
 Book.destroy_all
@@ -9,19 +35,25 @@ User.destroy_all
 puts "Creating users..."
 User.create!(email: "kyle@books.com", password: "password", first_name: "Kyle", last_name: "Bokktastic")
 User.create!(email: "mounir@books.com", password: "password", first_name: "Mounir", last_name: "Booksalot")
-User.create!(email: "souffiane@books.com", password: "password", first_name: "Souffiane", last_name: "Booker")
+User.create!(email: "soufiane@books.com", password: "password", first_name: "Souffiane", last_name: "Booker")
 User.create!(email: "mark@books.com", password: "password", first_name: "Mark", last_name: "Bookman")
 puts "Created #{User.count} users!"
 
 puts "Creating books..."
-20.times do
+isbn13.each_with_index do |isbn, index|
+  url = "https://openlibrary.org/api/books?bibkeys=ISBN:#{isbn}&jscmd=data&format=json"
+  book = JSON.parse(RestClient.get(url))["ISBN:#{isbn}"]
+
   Book.create!(
-    title: Faker::Book.title,
-    author: Faker::Book.author,
-    year: rand(1900..2022),
-    category: Book::CATEGORIES.sample,
-    isbn: Faker::Code.isbn
+    title: book["title"],
+    author: book["authors"][0]["name"],
+    year: book["publish_date"],
+    category: book["subjects"][0]["name"],
+    isbn: book["identifiers"]["isbn_13"][0],
+    description: book["description"] || 'none',
+    cover_url: book["cover"]["large"] # || book["cover"]["medium"] || book["cover"]["small"]
   )
+  puts "#{index} Created!"
 end
 puts "Created #{Book.count} books!"
 
