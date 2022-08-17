@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     @books = @user.books
     @rentals = @user.rentals
     @offers = @user.offers
+    @photo = @user.photo
   end
 
   def dashboard
@@ -13,6 +14,7 @@ class UsersController < ApplicationController
       @books = @user.books
       @rentals = @user.rentals
       @offers = @user.offers
+      @photo = @user.photo
     else
       redirect_to root_path, alert: "You are not authorized to perform this action."
     end

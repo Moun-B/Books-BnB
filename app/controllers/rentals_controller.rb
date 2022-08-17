@@ -4,10 +4,10 @@ class RentalsController < ApplicationController
   def create
     @rental = Rental.new(rental_params)
     @rental.offer = @offer
-    raise
+    @rental.user = current_user
     authorize @rental
     if @rental.save
-      redirect_to offers_path
+      redirect_to dashboard_path
     else
       redirect_to offer_path(@rental.offer)
     end
@@ -16,7 +16,7 @@ class RentalsController < ApplicationController
   private
 
   def rental_params
-    params.require(:rental).permit(:duration_start(1i), :duration_start(2i), :duration_start(3i), :duration_end(1i), :duration_end(2i), :duration_end(3i), :offer_id, :user_id, :price)
+    params.require(:rental).permit(:duration_start, :duration_end)
   end
 
   def set_offer

@@ -24,6 +24,15 @@
     resize: horizontal;
   }
 
+  &-dashboard {
+    width: 100%;
+    margin: 0;
+
+    & p {
+      width: 100%;
+      resize: none;
+    }
+  }
   .author {
     font-size: 15px;
   }

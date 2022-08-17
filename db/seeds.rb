@@ -27,10 +27,10 @@ isbn13 = ['9780590353427',
 status = []
 
 puts "Destroying database..."
-User.destroy_all
-Book.destroy_all
 Offer.destroy_all
+Book.destroy_all
 Rental.destroy_all
+User.destroy_all
 
 puts "Creating users..."
 User.create!(email: "kyle@books.com", password: "password", first_name: "Kyle", last_name: "Bokktastic")
