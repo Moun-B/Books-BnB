@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="rental col-3 ms-3 py-3">
-      <p class="border-bottom price text-center py-3">¥<%= @offer.price.truncate %></p>
+      <p class="border-bottom text-center py-3"><span class="price">¥<%= @offer.price.truncate %></span> per day</p>
       <%= simple_form_for([@offer, @rental], html: { class: "form-group"}, data: {turbo_confirm: "Rent this book?"}) do |f| %>
         <%= f.input :duration_start, html5: true %>
         <%= f.input :duration_end, html5: true %>
