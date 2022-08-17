@@ -4,7 +4,11 @@
       <div class="dashboard-card">
       <div class="d-flex flex-column align-items-center gap-3">
         <img src="https://www.pngmart.com/files/21/Account-Avatar-Profile-PNG-Photo.png" alt="avatar">
-        <button type="button" class="btn btn-secondary btn-sm">Edit Profil</button>
+        <button type="button" class="btn btn-secondary btn-sm">Edit Profile</button>
+        <% simple_form_for @user do |f| %>
+          <%= f.input :photo, as: :file %>
+          <%= f.submit %>
+        <% end %>
         <% if @user.first_name.nil? && @user.last_name.nil? %>
             <h3>Your profile</h3>
         <% else %>
