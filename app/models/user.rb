@@ -7,5 +7,6 @@ class User < ApplicationRecord
   has_many :rentals
   has_many :offers, dependent: :destroy
   has_many :books, through: :offers
+  has_one_attached :photo
   has_many :reviews, dependent: :destroy
 end
