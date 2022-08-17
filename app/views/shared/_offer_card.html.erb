@@ -1,0 +1,15 @@
+<div class="book d-flex flex-column">
+  <div class="cover">
+    <%= image_tag offer.book.cover_url, alt: "#{offer.book.title} cover" %>
+  </div>
+  <div class="description">
+    <p class="title">
+      <%= offer.book.title %><br>
+      <span class="author"><%= offer.book.author %></span>
+    </p>
+  </div>
+  <div id='price-tag'>
+    <span>¥ <%= offer.price.to_i %></span>
+  </div>
+  <%= link_to 'Check Offer', offer_path(offer), class: 'btn btn-primary-red mt-3 mb-3' %>
+</div>
