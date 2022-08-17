@@ -28,11 +28,13 @@
           Obcaecati beatae sit ex eveniet unde enim atque. Possimus eveniet nihil voluptatem veniam maiores placeat, ab at, repellat distinctio mollitia totam.</p>
       </div>
     </div>
-    <div class="rental col-3 ms-3 py-3">
+    <div class="rental col-3 ms-3 py-3" data-controller="total-price">
       <p class="border-bottom text-center py-3"><span class="price">¥<%= @offer.price.truncate %></span> per day</p>
       <%= simple_form_for([@offer, @rental], html: { class: "form-group"}, data: {turbo_confirm: "Rent this book?"}) do |f| %>
-        <%= f.input :duration_start, html5: true %>
-        <%= f.input :duration_end, html5: true %>
+        <%= f.input :duration_start, html5: true, input_html: {"data-action": "change->total-price#calculateDays", "data-total-price-target": "start"} %>
+        <%= f.input :duration_end, html5: true, input_html: {"data-action": "change->total-price#calculateDays", "data-total-price-target": "end"} %>
+        <p>Days: <span class="days" data-total-price-target="days"></span></p>
+        <p class="total">Total: </p>
         <%= f.submit "Rent", class: "rental-button" %>
       <% end %>
     </div>
