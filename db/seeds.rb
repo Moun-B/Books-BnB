@@ -73,6 +73,8 @@ puts "Creating rentals..."
 10.times do
   Rental.create!(
     duration_start: Faker::Date.between(from: Date.today, to: 1.month.from_now),
+    duration_end: Faker::Date.between(from: '2022-09-19', to: '2022-10-19'),
+    status: rand(0..2),
     offer: Offer.all.sample,
     user: User.all.sample
   )
