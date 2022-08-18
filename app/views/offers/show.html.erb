@@ -1,22 +1,7 @@
-<%# <div class="container">
-  <div class="container">
-    <div class="row">
-      <div class="col-8">
-        <div class="container">
-          <img src="https://images-na.ssl-images-amazon.com/images/I/A1fS8mAs8nL.jpg" alt="book-cover">
-        </div>
-        <div class="container">
-        </div>
-      </div>
-      <div class="col-4"></div>
-    </div>
-  </div>
-</div> %>
 <div class="container">
   <div class="row gx-5 justify-content-center">
     <div class="offer-card-show col-8">
       <%= image_tag @offer.book.cover_url, alt: "#{@offer.book.title} cover", class: 'cover' %>
-      <%# <img src="https://images-na.ssl-images-amazon.com/images/I/A1fS8mAs8nL.jpg" alt="book-cover" class="cover"> %>
       <div class="offer-card-show-info">
         <h2 class="border-bottom py-3"><%= @offer.book.title %></h2>
         <p class="description"><%= @offer.book.year %></p>
@@ -55,4 +40,3 @@
       </div>
     </div>
   </div>
-  <%# ¥500 %>
