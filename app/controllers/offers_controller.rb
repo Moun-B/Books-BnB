@@ -23,12 +23,12 @@ class OffersController < ApplicationController
     @offer.user = current_user
     authorize @offer
     if @offer.save
-      redirect_to :dashboard
+      redirect_to dashboard_path(tag: 'offres')
     else
       render :new, status: :unprocessable_entity
     end
   end
-  
+
   def destroy
     @offer = Offer.find(params[:id])
     authorize @offer
