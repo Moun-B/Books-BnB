@@ -9,7 +9,7 @@ class RentalsController < ApplicationController
     if @rental.save
       redirect_to dashboard_path
     else
-      redirect_to offer_path(@rental.offer)
+      redirect_to offer_path(@rental.offer), alert: "Please select a start and end date."
     end
   end
 
