@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row gx-5 gap-3">
+    <div class="offer-card-show col-6">
+      <%= image_tag @book.cover_url, alt: "text" %>
+      <div class="h-100 pb-3 d-flex flex-column justify-content-between">
+        <div class="offer-card-show-info">
+          <h2 class="border-bottom py-3"><%= @book.title%></h2>
+          <p class="description overflow-hidden"><%= @book.year %></p>
+          <p><%= @book.category %></p>
+          <p>By (author) <%= @book.author%></p>
+          <p class="description"><%= @book.description %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= simple_form_for([@book, @offer]) do |f| %>
+    <%= f.input :price %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

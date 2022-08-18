@@ -1,19 +1,30 @@
-<h1>Search</h1>
-<ul>
-  <% @json.each do |book| %>
-    <li>
-      <p>Title: <%= book['volumeInfo']['title'] %></p>
-      <% if book['volumeInfo']['publishedDate'] %>
-        <p>Year: <%= book['volumeInfo']['publishedDate'][0,4] %></p>
-      <% end %>
-      <p>Category: <%= book['volumeInfo']['categories'] %></p>
-      <p>Author: <%= book['volumeInfo']['authors']%></p>
-      <% if book['volumeInfo']['industryIdentifiers']%>
-        <p>isbn: <%= book['volumeInfo']['industryIdentifiers'][0]['identifier'] %></p>
-      <% end %>
-      <% if book['volumeInfo']['imageLinks'] %>
-        <%= image_tag book['volumeInfo']['imageLinks']['thumbnail'], alt: "text" %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row gx-5 gap-3">
+    <% @books.each do |book| %>
+      <div class="offer-card-show col-6">
+        <%= image_tag book.cover_url, alt: "text" %>
+        <div class="h-100 pb-3 d-flex flex-column justify-content-between">
+          <div class="offer-card-show-info">
+            <h2 class="border-bottom py-3"><%= book.title%></h2>
+            <p class="description overflow-hidden"><%= book.year %></p>
+            <p><%= book.category %></p>
+            <p>By (author) <%= book.author%></p>
+            <p class="description"><%= book.description %></p>
+          </div>
+          <div>
+            <%= simple_form_for(book) do |f| %>
+              <%= f.input :title, as: :hidden, input_html: {value: book.title}%>
+              <%= f.input :isbn, as: :hidden, input_html: {value: book.isbn} %>
+              <%= f.input :year, as: :hidden, input_html: {value: book.year} %>
+              <%= f.input :description, as: :hidden, input_html: {value: book.description} %>
+              <%= f.input :category, as: :hidden, input_html: {value: book.category} %>
+              <%= f.input :cover_url, as: :hidden, input_html: {value: book.cover_url} %>
+              <%= f.input :author, as: :hidden, input_html: {value: book.author}%>
+              <%= f.submit "List this book", class: 'btn btn-primary-red' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
