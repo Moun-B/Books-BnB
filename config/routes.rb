@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'users#dashboard', as: :dashboard
 
-  resources :offers, only: [:index, :show, :new, :create] do
+  resources :offers, only: [:index, :show, :new, :create, :destroy] do
     resources :rentals, only: [:create]
   end
 
