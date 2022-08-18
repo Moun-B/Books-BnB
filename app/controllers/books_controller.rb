@@ -42,19 +42,23 @@ class BooksController < ApplicationController
   end
 
   def search
-    query = params[:query].gsub(' ', '+')
-    url = "https://www.googleapis.com/books/v1/volumes?q=#{query}&maxResults=15&key=#{ENV['GOOGLE_API_KEY']}"
-    @json = JSON.parse(RestClient.get(url))['items']
-    @books = @json.map do |book|
-      Book.new(
-        title: book['volumeInfo']['title'],
-        year: book['volumeInfo']['publishedDate'][0,4].to_i,
-        category: book['volumeInfo']['categories'] ? book['volumeInfo']['categories'][0] : '',
-        author: book['volumeInfo']['authors'] ? book['volumeInfo']['authors'][0] : 'Unknown',
-        isbn: book['volumeInfo']['industryIdentifiers'] ? book['volumeInfo']['industryIdentifiers'][0]['identifier'] : '',
-        description: book['volumeInfo']['description'],
-        cover_url: book['volumeInfo']['imageLinks'] ? book['volumeInfo']['imageLinks']['thumbnail'] : ''
-      )
+    if params[:query].empty?
+      redirect_to :offers
+    else
+      @query = params[:query].gsub(' ', '+')
+      url = "https://www.googleapis.com/books/v1/volumes?q=#{@query}&maxResults=15&key=#{ENV['GOOGLE_API_KEY']}"
+      @json = JSON.parse(RestClient.get(url))['items']
+      @books = @json.map do |book|
+        Book.new(
+          title: book['volumeInfo']['title'],
+          year: book['volumeInfo']['publishedDate'],
+          category: book['volumeInfo']['categories'] ? book['volumeInfo']['categories'][0] : '',
+          author: book['volumeInfo']['authors'] ? book['volumeInfo']['authors'][0] : 'Unknown',
+          isbn: book['volumeInfo']['industryIdentifiers'] ? book['volumeInfo']['industryIdentifiers'][0]['identifier'] : '',
+          description: book['volumeInfo']['description'],
+          cover_url: book['volumeInfo']['imageLinks'] ? book['volumeInfo']['imageLinks']['thumbnail'] : 'no-cover.jpg'
+        )
+      end
     end
   end
 

@@ -1,12 +1,22 @@
+<div class="container mb-4">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6 side-section  sticky-top">
+      <%= form_with url: booksearch_url, class: "d-flex", method: :get do |form| %>
+        <%= form.text_field :query, placeholder: 'Another search...', class: "search-field flex-grow-3 mr-3", value: @query.gsub('+', ' ') %>
+        <%= form.submit "Find", class: "btn btn-primary-red btn-sm w-25 ml-3" %>
+      <% end %>
+    </div>
+    <div class="col-3"></div>
+  </div>
+</div>
 <div class="container ">
   <div class="row gx-5 gap-3 justify-content-center">
     <% @books.each do |book| %>
       <div class="offer-card-show col-sm-12 col-lg-8 ">
-        <div class="container">
-          <%= image_tag book.cover_url, alt: "Book Cover" %>
-        </div>
+        <%= image_tag book.cover_url, alt: "Book Cover" %>
         <div class="h-100 py-3 ms-3 d-flex flex-column  flex-fill">
-          <div class="offer-card-show-info overflow-scroll ">
+          <div class="offer-card-show-info overflow-auto ">
             <h2 class="border-bottom py-3"><%= book.title%></h2>
             <p class="description overflow-hidden"><%= book.year %></p>
             <p><%= book.category %></p>
