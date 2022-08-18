@@ -77,7 +77,6 @@ puts "Creating rentals..."
     status: rand(0..2),
     offer: Offer.all.sample,
     user: User.all.sample,
-    price: Offer.all.price.sample
   )
 end
 
