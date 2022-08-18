@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="total-price"
 export default class extends Controller {
-  static targets = ["days", "start", "end", "price", "total", "priceInTotal"]
+  static targets = ["days", "start", "end", "price", "total", "priceInTotal", "x"]
 
   connect() {
     // console.log("Hello from total_price_controller!", this.element)
@@ -18,6 +18,9 @@ export default class extends Controller {
     if (start && end) {
       const daysDiff = this.getDifferenceInDays(end, start);
       this.daysTarget.innerText = daysDiff;
+      if (price && daysDiff) {
+        this.xTarget.innerHTML = " x ";
+      }
       const total = price * daysDiff;
       this.priceInTotalTarget.innerHTML = `¥${price}`;
       this.totalTarget.innerHTML = `¥${total}`;
