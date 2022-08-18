@@ -1,0 +1,30 @@
+// we need a search bar in the center of the page with search input and search button
+.search-field {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid $red;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  color: $red;
+}
+
+.search-field:focus {
+  outline: none;
+  border: 1px solid $red;
+  color: $red;
+  box-shadow: none;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:focus + {
+    color: transparent;
+  }
+}
+
+.search-btn {
+  width: 36%;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
