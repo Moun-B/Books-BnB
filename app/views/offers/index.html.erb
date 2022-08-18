@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-9 d-flex flex-wrap" id='offers'>
         <% @offers.each do |offer| %>
-          <%= render 'shared/offer_card', offer: offer %>
+          <%= render 'offer_card', offer: offer %>
         <% end %>
       </div>
       <div class="col-3 h-100">
