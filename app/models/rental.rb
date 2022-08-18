@@ -6,7 +6,6 @@ class Rental < ApplicationRecord
   validate :duration_start_cannot_be_in_the_past, on: :create
 
   validates :duration_end, presence: true
-  validates :price, presence: true
 
   enum :status, [:pending, :accepted, :rejected], default: :pending
 
@@ -14,5 +13,9 @@ class Rental < ApplicationRecord
     if duration_start.present? && duration_start < Date.today
       errors.add(:duration_start, "Can't be in the past")
     end
+  end
+
+  def price
+    offer.price * (duration_end - duration_start).to_i
   end
 end
