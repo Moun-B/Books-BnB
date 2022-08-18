@@ -27,10 +27,16 @@
   &-dashboard {
     width: 100%;
     margin: 0;
+    height: auto;
+
+    .description {
+      overflow: visible;
+    }
 
     & p {
       width: 100%;
       resize: none;
+      margin: 8px 0;
     }
   }
   .author {

@@ -1,4 +1,5 @@
 class Offer < ApplicationRecord
+
   has_many :rentals, dependent: :destroy
   belongs_to :book
   belongs_to :user
@@ -7,4 +8,17 @@ class Offer < ApplicationRecord
   validates :price, presence: true
   validates :book, presence: true
   validates :user, presence: true
+
+  # search
+  include PgSearch::Model
+  pg_search_scope :search,
+    against: [:price],
+    associated_against: {
+      book: [ :title, :author ]
+    },
+    using: {
+      tsearch: {
+        prefix: true
+      }
+    }
 end

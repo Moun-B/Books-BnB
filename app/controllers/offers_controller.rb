@@ -1,6 +1,12 @@
 class OffersController < ApplicationController
   def index
     @offers = policy_scope(Offer)
+
+    if params[:q].present?
+      @offers = Offer.search(params[:q])
+    else
+      @offers = Offer.all
+    end
   end
 
   def show
@@ -33,6 +39,7 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
     authorize @offer
     @offer.destroy
+    redirect_to dashboard_path(tab: "offer"), status: :see_other
   end
 
   private
