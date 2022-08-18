@@ -10,9 +10,9 @@
           <% end %>
           <button type="button" class="btn btn-secondary btn-sm">Edit Profil</button>
           <% if @user.first_name.nil? && @user.last_name.nil? %>
-              <h3>Your profile</h3>
+            <h3>Your profile</h3>
           <% else %>
-              <h3><%= "#{@user.first_name} #{@user.last_name}" %></h3>
+            <h3><%= "#{@user.first_name} #{@user.last_name}" %></h3>
           <% end %>
         </div>
         <div class="d-flex flex-column align-items-center gap-3">
@@ -70,8 +70,8 @@
                   <span class="author"><%= offer.book.author %></span><br>
                   <span class="author"><strong><%= offer.price.to_i%>¥</strong> per day</span>
                   <span class="delete-button"><%= link_to offer_path(offer), data: { turbo_method: :delete, turbo_confirm: "Really?" } do %>
-                    <i class="fa-solid fa-delete-left"></i></span></p>
-                  <% end %>
+                      <i class="fa-solid fa-delete-left"></i></span></p>
+                <% end %>
               </div>
             </div>
           <% end %>
@@ -126,7 +126,7 @@
             </div>
           </div>
         <% end %>
-      </div>
+      <% end %>
     </div>
     </div>
   </div>
