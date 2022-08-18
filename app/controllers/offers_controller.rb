@@ -39,6 +39,7 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
     authorize @offer
     @offer.destroy
+    redirect_to dashboard_path(tab: "offer"), status: :see_other
   end
 
   private

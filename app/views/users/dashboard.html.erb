@@ -3,7 +3,7 @@
     <div class="container my-4 col-sm-12 col-md-4">
       <div class="dashboard-card">
         <div class="d-flex flex-column align-items-center gap-3">
-        <% if @user.photo.present? %>
+          <% if @user.photo.present? %>
             <img src="<%=@user.photo%>" alt="avatar">
           <% else %>
             <img src="https://www.pngmart.com/files/21/Account-Avatar-Profile-PNG-Photo.png" alt="avatar">
@@ -43,15 +43,22 @@
             </div>
             <div class="description">
               <p class="title"><%= rental.offer.book.title %><br>
-                <span class="author"><%= rental.offer.book.author %></span><br>
-                <span class="author"><%= rental.duration_start <= Date.today ? "Rent already started" : "Your rent start in #{pluralize((rental.duration_start - Date.today).to_i, "day")}" %></span><br>
-                <span class="author"><%= pluralize((rental.duration_end - Date.today).to_i, "Day")%> left</span></p>
+              <span class="author"><strong>Total: <%= rental.price.to_i%>¥</strong></span><br>
+              <span class="author"><strong>From</strong> <%= rental.duration_start %> <strong>to</strong> <%= rental.duration_end %></span><br>
+              <span class="author"><strong>Lent by: <%=rental.offer.user.first_name %> <%=rental.offer.user.last_name%></strong></span><br>
+              <% if rental.status == "rejected" %>
+                <span class="author pt-2"><i class="fa-solid fa-circle color-dot-red"></i> <%= rental.status.capitalize%></span><br>
+              <% elsif rental.status == "accepted" %>
+                <span class="author"><i class="fa-solid fa-circle color-dot-green"></i> <%= rental.status.capitalize%></span><br>
+              <% elsif rental.status == "pending" %>
+                <span class="author"><i class="fa-solid fa-circle color-dot-orange"></i> <%= rental.status.capitalize%></span><br>
+              <% end %></p>
             </div>
           </div>
         <% end %>
       </div>
       <div class="d-none" data-tabdashboard-target='cardsOffer cards' >
-      <h3 class="mt-3">My listed offers</h3>
+        <h3 class="mt-3">My listed offers</h3>
         <div class="book-grid">
           <% @offers.each do |offer| %>
             <div class="book book-dashboard d-flex flex-column">
@@ -79,15 +86,28 @@
                 </div>
                 <div class="description">
                   <p class="title"><%= offer.book.title %><br>
-                    <span class="author"><%= offer.book.author %></span><br>
-                    <span class="author"><strong><%= offer.price.to_i%>¥</strong> per day</span><br>
-                    <% if rental.status == "pending"%>
-                      <span class="author"><i class="fa-solid fa-circle color-dot-orange"></i> <%= rental.status.capitalize%></span><br></p>
-                    <% elsif rental.status == "rejected" %>
-                      <span class="author"><i class="fa-solid fa-circle color-dot-red"></i> <%= rental.status.capitalize%></span><br></p>
-                    <% elsif rental.status == "accepted" %>
-                      <span class="author"><i class="fa-solid fa-circle color-dot-green"></i> <%= rental.status.capitalize%></span><br></p>
-                    <% end %>
+                    <span class="author"><strong>Total: <%= rental.price.to_i%>¥</strong></span><br>
+                    <span class="author"><strong>From</strong> <%= rental.duration_start %> <strong>to</strong> <%= rental.duration_end %></span><br>
+                    <span class="author"><strong>Rented by: <%=rental.user.first_name %> <%=rental.user.last_name%> </strong></span>
+                    <div class="d-flex gap-2">
+                      <% if rental.pending? %>
+                        <%= simple_form_for rental do |f| %>
+                          <%= f.input :status, as: :hidden, input_html: { value: 'accepted'}, wrapper_html: { class: "d-none"} %>
+                          <%= f.submit 'Accept', class: 'btn btn-danger m-0' %>
+                        <% end %>
+                        <%= simple_form_for rental do |f| %>
+                          <%= f.input :status, as: :hidden, input_html: { value: 'rejected'}, wrapper_html: { class: "d-none"} %>
+                          <%= f.submit 'Reject', class: 'btn btn-secondary m-0' %>
+                        <% end %>
+                      <% else %>
+                        <% if rental.status == "rejected" %>
+                          <span class="author pt-2"><i class="fa-solid fa-circle color-dot-red"></i> <%= rental.status.capitalize%></span><br>
+                        <% elsif rental.status == "accepted" %>
+                          <span class="author"><i class="fa-solid fa-circle color-dot-green"></i> <%= rental.status.capitalize%></span><br>
+                        <% end %>
+                      <% end %>
+                    </div>
+                  </p>
                 </div>
               </div>
             <% end %>
@@ -102,11 +122,11 @@
             </div>
             <div class="description">
               <p class="title"><%= book.title %><br>
-                <span class="author"><%= book.author %></span><br></p>
+              <span class="author"><%= book.author %></span><br></p>
             </div>
           </div>
         <% end %>
       </div>
     </div>
+    </div>
   </div>
-</div>
