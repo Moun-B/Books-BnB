@@ -10,10 +10,12 @@
       </div>
       <div class="col-3 h-100">
         <div class="side-section">
-          <h3 class="side-section-header">Search Books</h3>
+          <h3 class="side-section-header">Offer Your Books</h3>
+          <p>Want to offer your books to other eager readers?</p>
+          <p>No need to upload a photo, just search for your book here and we'll do the rest!</p>
           <%= form_with url: booksearch_url, method: :get do |form| %>
             <%= form.text_field :query, placeholder: 'Search title, author, ISBN', class: "search-field" %>
-            <%= form.submit "Find", class: "btn btn-primary-red" %>
+            <%= form.submit "Find My Book", class: "btn btn-primary-black mb-3 p-3" %>
           <% end %>
         </div>
         <div class='side-section'>
