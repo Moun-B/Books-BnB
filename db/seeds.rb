@@ -33,10 +33,10 @@ Rental.destroy_all
 User.destroy_all
 
 puts "Creating users..."
-User.create!(email: "kyle@books.com", password: "password", first_name: "Kyle", last_name: "Bokktastic")
-User.create!(email: "mounir@books.com", password: "password", first_name: "Mounir", last_name: "Booksalot")
-User.create!(email: "soufiane@books.com", password: "password", first_name: "Souffiane", last_name: "Booker")
-User.create!(email: "mark@books.com", password: "password", first_name: "Mark", last_name: "Bookman")
+User.create!(email: "kyle@books.com", password: "password", first_name: "Kyle", last_name: "Booktastic", address: "Dotombori, Osaka")
+User.create!(email: "mounir@books.com", password: "password", first_name: "Mounir", last_name: "Booksalot", address: "Shibuya, Tokyo")
+User.create!(email: "soufiane@books.com", password: "password", first_name: "Souffiane", last_name: "Booker", address: "Naha, Okinawa")
+User.create!(email: "mark@books.com", password: "password", first_name: "Mark", last_name: "Bookman", address: "Kamakura, Kanagawa")
 puts "Created #{User.count} users!"
 
 puts "Creating books..."
@@ -61,7 +61,7 @@ puts "Created #{Book.count} books!"
 puts "Creating offers..."
 10.times do
   Offer.create!(
-    price: rand(100..999),
+    price: rand(99..399),
     book: Book.all.sample,
     user: User.all.sample
   )
@@ -73,7 +73,7 @@ puts "Creating rentals..."
 10.times do
   Rental.create!(
     duration_start: Faker::Date.between(from: Date.today, to: 1.month.from_now),
-    duration_end: Faker::Date.between(from: '2022-09-19', to: '2022-10-19'),
+    duration_end: Faker::Date.between(from: Date.today, to: 2.months.from_now),
     status: rand(0..2),
     offer: Offer.all.sample,
     user: User.all.sample

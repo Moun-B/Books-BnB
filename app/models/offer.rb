@@ -5,4 +5,6 @@ class Offer < ApplicationRecord
   accepts_nested_attributes_for :book
 
   validates :price, presence: true
+  validates :book, presence: true
+  validates :user, presence: true
 end

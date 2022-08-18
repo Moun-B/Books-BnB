@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import TabdashboardController from "./tabdashboard_controller"
 application.register("tabdashboard", TabdashboardController)
+
+import TotalPriceController from "./total_price_controller"
+application.register("total-price", TotalPriceController)
