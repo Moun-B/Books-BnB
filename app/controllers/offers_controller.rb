@@ -1,6 +1,12 @@
 class OffersController < ApplicationController
   def index
     @offers = policy_scope(Offer)
+
+    if params[:q].present?
+      @offers = Offer.search(params[:q])
+    else
+      @offers = Offer.all
+    end
   end
 
   def show
@@ -28,7 +34,7 @@ class OffersController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-  
+
   def destroy
     @offer = Offer.find(params[:id])
     authorize @offer
