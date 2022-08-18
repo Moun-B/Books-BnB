@@ -76,7 +76,8 @@ puts "Creating rentals..."
     duration_end: Faker::Date.between(from: '2022-09-19', to: '2022-10-19'),
     status: rand(0..2),
     offer: Offer.all.sample,
-    user: User.all.sample
+    user: User.all.sample,
+    price: Offer.all.price.sample
   )
 end
 
