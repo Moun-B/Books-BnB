@@ -1,15 +1,17 @@
-<div class="container">
-  <div class="row gx-5 gap-3">
+<div class="container ">
+  <div class="row gx-5 gap-3 justify-content-center">
     <% @books.each do |book| %>
-      <div class="offer-card-show col-6">
-        <%= image_tag book.cover_url, alt: "Book Cover" %>
-        <div class="h-100 pb-3 d-flex flex-column justify-content-between">
-          <div class="offer-card-show-info overflow-scroll">
+      <div class="offer-card-show col-sm-12 col-lg-8 ">
+        <div class="container">
+          <%= image_tag book.cover_url, alt: "Book Cover" %>
+        </div>
+        <div class="h-100 py-3 ms-3 d-flex flex-column  flex-fill">
+          <div class="offer-card-show-info overflow-scroll ">
             <h2 class="border-bottom py-3"><%= book.title%></h2>
             <p class="description overflow-hidden"><%= book.year %></p>
             <p><%= book.category %></p>
             <p>By (author) <%= book.author%></p>
-            <div class="container ">
+            <div class="container px-0 ">
               <p class="description"><%= book.description %></p>
             </div>
           </div>
