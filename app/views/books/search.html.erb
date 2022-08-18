@@ -2,14 +2,16 @@
   <div class="row gx-5 gap-3">
     <% @books.each do |book| %>
       <div class="offer-card-show col-6">
-        <%= image_tag book.cover_url, alt: "text" %>
+        <%= image_tag book.cover_url, alt: "Book Cover" %>
         <div class="h-100 pb-3 d-flex flex-column justify-content-between">
-          <div class="offer-card-show-info">
+          <div class="offer-card-show-info overflow-scroll">
             <h2 class="border-bottom py-3"><%= book.title%></h2>
             <p class="description overflow-hidden"><%= book.year %></p>
             <p><%= book.category %></p>
             <p>By (author) <%= book.author%></p>
-            <p class="description"><%= book.description %></p>
+            <div class="container ">
+              <p class="description"><%= book.description %></p>
+            </div>
           </div>
           <div>
             <%= simple_form_for(book) do |f| %>
