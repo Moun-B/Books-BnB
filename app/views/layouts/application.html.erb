@@ -9,12 +9,15 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= favicon_link_tag asset_path('favicon.png') %>
   </head>
+
+  <%# NOTE: shared/ is now application so just render with the partial name %>
+
   <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
+    <%= render 'navbar' %>
+    <%= render 'flashes' %>
     <div class="content">
       <%= yield %>
     </div>
-    <%= render 'shared/footer' %>
+    <%= render 'footer' %>
   </body>
 </html>
