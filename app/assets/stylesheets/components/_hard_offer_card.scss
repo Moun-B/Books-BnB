@@ -1,0 +1,57 @@
+.home-book-card {
+  position: relative;
+  display: inline-block;
+  width: 265px;
+  box-shadow: 0 0 8px rgba(80, 79, 79, 0.158);
+  margin: 25px;
+  padding: 10px 10px 0 10px;
+  vertical-align: top;
+  transition: height 1s;
+  border-radius: 11px;
+
+  .home-description {
+    overflow: hidden;
+  }
+
+  p {
+    margin: 16px 0;
+    font-size: 20px;
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    resize: horizontal;
+  }
+
+  &-dashboard {
+    width: 100%;
+    margin: 0;
+
+    & p {
+      width: 100%;
+      resize: none;
+    }
+  }
+  .home-author {
+    font-size: 15px;
+  }
+
+  h1 {
+    color: gray;
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: -3px;
+  }
+}
+
+.home-cover-img {
+  height: 400px;
+  width: 240px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+#home-price-tag {
+  font-size: 20px;
+  font-weight: bold;
+}

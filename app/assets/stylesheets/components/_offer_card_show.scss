@@ -48,7 +48,7 @@
   // align-items: center;
   // justify-content: space-around;
 
-  .price {
+  .price-per-day {
     font-size: 32px;
     font-weight: bold;
     color: #FF5A5E;
@@ -57,5 +57,10 @@
   .rental-button {
     background-color: #FF5A5E;
     color: white;
+  }
+
+  .total {
+    color: #FF5A5E;
+    font-weight: bold;
   }
 }

@@ -28,11 +28,17 @@
           Obcaecati beatae sit ex eveniet unde enim atque. Possimus eveniet nihil voluptatem veniam maiores placeat, ab at, repellat distinctio mollitia totam.</p>
       </div>
     </div>
-    <div class="rental col-3 ms-3 py-3">
-      <p class="border-bottom price text-center py-3">¥<%= @offer.price.truncate %></p>
+    <div class="rental col-3 ms-3 py-3" data-controller="total-price">
+      <p class="border-bottom text-center py-3"><span class="price-per-day">¥<span data-total-price-target="price"><%= @offer.price.truncate %></span></span> per day</p>
       <%= simple_form_for([@offer, @rental], html: { class: "form-group"}, data: {turbo_confirm: "Rent this book?"}) do |f| %>
-        <%= f.input :duration_start, html5: true %>
-        <%= f.input :duration_end, html5: true %>
+        <%= f.input :duration_start, html5: true, input_html: {"data-action": "change->total-price#calculateDays", "data-total-price-target": "start"} %>
+        <%= f.input :duration_end, html5: true, input_html: {"data-action": "change->total-price#calculateDays", "data-total-price-target": "end"} %>
+        <div class="container pt-3 fw-bold">
+          <div class="row ">
+            <p class="col-8 text-start align-self-center  mb-0"><span data-total-price-target="priceInTotal"></span><span data-total-price-target="x"></span> <span data-total-price-target="days"></span></p>
+            <p class="total col-4 text-end fs-5 align-self-center  mb-0"><span data-total-price-target="total"></span></p>
+          </div>
+        </div>
         <%= f.submit "Rent", class: "rental-button" %>
       <% end %>
     </div>
@@ -43,7 +49,7 @@
       <div class="row">
         <div class="col-12 d-flex">
           <% @offers.sample(6).each do |offer| %>
-            <%= render 'shared/offer_card', offer: offer %>
+            <%= render 'offer_card', offer: offer %>
           <% end %>
         </div>
       </div>
