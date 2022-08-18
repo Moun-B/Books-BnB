@@ -10,6 +10,10 @@ class UsersController < ApplicationController
   def dashboard
     @user = current_user
     authorize @user
+    @tab = "rental"
+    if params[:tab].present?
+      @tab = params[:tab]
+    end
     if user_signed_in?
       @books = @user.books
       @rentals = @user.rentals

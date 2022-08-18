@@ -28,11 +28,12 @@ class OffersController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-  
+
   def destroy
     @offer = Offer.find(params[:id])
     authorize @offer
     @offer.destroy
+    redirect_to dashboard_path(tab: "offer"), status: :see_other
   end
 
   private
