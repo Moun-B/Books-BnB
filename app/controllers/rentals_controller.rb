@@ -10,6 +10,7 @@ class RentalsController < ApplicationController
       redirect_to dashboard_path
     else
       redirect_to offer_path(@rental.offer)
+      # flash[:message] = "Missing Fields"
     end
   end
 
