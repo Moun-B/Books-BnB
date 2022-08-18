@@ -25,4 +25,8 @@ class Rental < ApplicationRecord
   def price
     offer.price * (duration_end - duration_start).to_i
   end
+
+  def days
+    (duration_end - duration_start).to_i
+  end
 end

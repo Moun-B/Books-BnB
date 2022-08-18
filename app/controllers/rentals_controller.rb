@@ -5,14 +5,11 @@ class RentalsController < ApplicationController
     @rental = Rental.new(rental_params)
     @rental.offer = @offer
     @rental.user = current_user
-    @days = (@rental.duration_end - @rental.duration_start).to_i
-    @offer.price = @offer.price * @days
     authorize @rental
     if @rental.save
       redirect_to dashboard_path
     else
       redirect_to offer_path(@rental.offer)
-      # flash[:message] = "Missing Fields"
     end
   end
 
