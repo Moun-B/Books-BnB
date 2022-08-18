@@ -4,7 +4,7 @@
 .hero {
   // add a linear-gradient dark overlay to background image
   position: relative;
-  height: 100vh;
+  height: 75vh;
   width: 100vw;
   color: rgb(229, 229, 229);
 }
@@ -19,7 +19,6 @@
   height: 65vh;
   // we want the hero-content to be on the right-side of the hero
   position: absolute;
-  top: 5%;
   right: 28%;
   text-align: center;
 }
@@ -50,7 +49,6 @@
 
 .card {
   border-radius: 8px;
-  border-radius: 8px;
   width: 20vw;
   height: 45vh;
   position: absolute;
@@ -61,6 +59,7 @@
 }
 
 .card-title-header {
+  margin-left: 0;
   font-size: 1.8rem;
   font-weight: 700;
   text-align: left;
@@ -109,6 +108,23 @@ input:focus {
 }
 
 .btn.btn-primary-red:hover {
+  background: #333;
+  color: #fff;
+}
+
+.btn.btn-primary-black {
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+  align-self: center;
+}
+
+.btn.btn-primary-black:hover {
   background: rgb(230, 70, 70);
   color: #fff;
 }
@@ -134,7 +150,6 @@ input:focus {
 @media (max-width: 1050px) {
   // switch to one column with card at below the hero
   .hero {
-    height: 100vh;
     width: 100vw;
   }
   .hero-content {
@@ -192,4 +207,31 @@ input:focus {
     padding: 0.5rem 1rem;
     font-size: 0.6rem;
   }
+}
+
+.features-card {
+  border-radius: 8px;
+  width: 80vw;
+  height: 72vh;
+  border: none;
+  box-shadow: 0px 0px 8px rgba(110, 110, 110, 0.4);
+  background-color: #fff;
+}
+
+.features-card-title-header {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: left;
+  color: #333;
+  margin-top: 1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.features-card-content p {
+  font-weight: 400;
+  font-size: 1.2rem;
+  text-align: left;
+  color: rgb(100, 99, 99);
+  margin-top: 0.2rem;
+  font-family: 'Montserrat', sans-serif;
 }

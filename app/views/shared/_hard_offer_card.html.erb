@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-4">
+    <div class="home-book-card d-flex flex-column">
+      <div class="home-cover">
+        <%= image_tag 'hard_book1', class: 'home-cover-img' %>
+      </div>
+      <div class="home-description">
+        <p class="home-title">
+          The Psychology of Money<br>
+          <span class="home-author">Morgan Housel</span>
+        </p>
+      </div>
+      <div id='home-price-tag'>
+        <span>¥ <%= rand(100..399) %></span>
+      </div>
+      <%= link_to 'Check Offer', offers_path, class: 'btn btn-primary-black mt-3 mb-3' %>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="home-book-card d-flex flex-column">
+      <div class="home-cover">
+        <%= image_tag 'hard_book2', class: 'home-cover-img' %>
+      </div>
+      <div class="home-description">
+        <p class="home-title">
+          The Chronicles of Narnia<br>
+          <span class="home-author">C.S. Lewis</span>
+        </p>
+      </div>
+      <div id='home-price-tag'>
+        <span>¥ <%= rand(100..399) %></span>
+      </div>
+      <%= link_to 'Check Offer', offers_path, class: 'btn btn-primary-black mt-3 mb-3' %>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="home-book-card d-flex flex-column">
+      <div class="home-cover">
+        <%= image_tag 'hard_book3', class: 'home-cover-img' %>
+      </div>
+      <div class="home-description">
+        <p class="home-title">
+          Stupore e Tremori<br>
+          <span class="home-author">Amelie Nothomb</span>
+        </p>
+      </div>
+      <div id='home-price-tag'>
+        <span>¥ <%= rand(100..399) %></span>
+      </div>
+      <%= link_to 'Check Offer', offers_path, class: 'btn btn-primary-black mt-3 mb-3' %>
+    </div>
+  </div>
+</div>
