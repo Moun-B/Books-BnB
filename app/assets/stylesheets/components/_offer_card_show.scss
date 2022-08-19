@@ -50,7 +50,7 @@
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  height: 480px;
+  height: 420px;
   // display: flex;
   // flex-direction: column;
   // align-items: center;
@@ -65,10 +65,15 @@
   .rental-button {
     background-color: #FF5A5E;
     color: white;
+    // margin-bottom: 16px;
   }
 
   .total {
     color: #FF5A5E;
     font-weight: bold;
   }
+}
+
+.form-select {
+  margin-top: 0;
 }

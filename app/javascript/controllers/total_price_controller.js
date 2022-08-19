@@ -17,12 +17,12 @@ export default class extends Controller {
 
     if (start && end) {
       const daysDiff = this.getDifferenceInDays(end, start);
-      this.daysTarget.innerText = daysDiff;
+      this.daysTarget.innerText = `${daysDiff} days`;
       if (price && daysDiff) {
         this.xTarget.innerHTML = " x ";
       }
       const total = price * daysDiff;
-      this.priceInTotalTarget.innerHTML = `¥${price}`;
+      this.priceInTotalTarget.innerHTML = `¥ ${price}`;
       this.totalTarget.innerHTML = `¥${total}`;
     }
   }

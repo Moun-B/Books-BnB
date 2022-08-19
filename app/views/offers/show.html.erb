@@ -8,19 +8,17 @@
         <p><%= @offer.book.category %></p>
         <p><%= '⭐️' * rand(1..5) %></p>
         <p>By <%= @offer.book.author %></p>
-        <p class="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi nulla corporis est magnam nemo quis in aliquam repellat minus eius, praesentium voluptas beatae pariatur itaque voluptate laudantium, reiciendis iusto eveniet.
-          Nostrum doloremque neque blanditiis eum officia. Ullam quas totam, numquam architecto omnis, pariatur repellendus possimus vel fuga saepe, nostrum est. Ut, maxime provident? Sed facere molestias qui cupiditate tempore. Eos.
-          Obcaecati beatae sit ex eveniet unde enim atque. Possimus eveniet nihil voluptatem veniam maiores placeat, ab at, repellat distinctio mollitia totam.</p>
+        <p class="description"><%= @offer.book.description %></p>
       </div>
       <span class="condition border rounded-5 px-3 align-self-center"><%= @offer.condition.humanize %></span>
     </div>
     <div class="rental col-3 ms-3 py-3" data-controller="total-price">
-      <p class="border-bottom text-center py-3"><span class="price-per-day">¥<span data-total-price-target="price"><%= @offer.price.truncate %></span></span> per day</p>
+      <p class="border-bottom text-center py-4"><span class="price-per-day">¥<span data-total-price-target="price"><%= @offer.price.truncate %></span></span> per day</p>
       <%= simple_form_for([@offer, @rental], html: { class: "form-group"}, data: {turbo_confirm: "Rent this book?"}) do |f| %>
         <%= f.input :duration_start, html5: true, input_html: {"data-action": "change->total-price#calculateDays", "data-total-price-target": "start"} %>
         <%= f.input :duration_end, html5: true, input_html: {"data-action": "change->total-price#calculateDays", "data-total-price-target": "end"} %>
-        <div class="container pt-3 fw-bold">
-          <div class="row ">
+        <div class="container fw-bold">
+          <div class="row">
             <p class="col-8 text-start align-self-center  mb-0"><span data-total-price-target="priceInTotal"></span><span data-total-price-target="x"></span> <span data-total-price-target="days"></span></p>
             <p class="total col-4 text-end fs-5 align-self-center  mb-0"><span data-total-price-target="total"></span></p>
           </div>

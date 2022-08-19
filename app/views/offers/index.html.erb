@@ -1,20 +1,28 @@
 <div class="container">
   <h3 class="card-title-header">View All Offers</h3>
   <hr>
-  <%= form_tag offers_path, method: :get, class: "d-grid col-6 align-content-start m-4" do %>
-    <%= text_field_tag :q,
+  <div class="container">
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-5">
+        <%= form_tag offers_path, method: :get, class: "d-flex align-items-center m-0 gap-3" do %>
+          <%= text_field_tag :q,
       params[:q],
       class: "form-control search-field",
       placeholder: "Search by Title, Author, or ISBN"
     %>
-    <%= submit_tag "Search Offers", class: "btn btn-primary-black search-btn" %>
-  <% end %>
+          <%= submit_tag "Search Offers", class: "btn btn-primary-black search-btn m-0" %>
+        <% end %>
+      </div>
+      <div class="col-4"></div>
+    </div>
+  </div>
   <div class="container">
     <div class="row">
       <div class="col-9 d-flex flex-wrap" id='offers'>
-      <% @offers.each do |offer| %>
-        <%= render "offer_card", offer: offer %>
-      <% end %>
+        <% @offers.each do |offer| %>
+          <%= render "offer_card", offer: offer %>
+        <% end %>
       </div>
       <div class="col-3 h-100">
         <div class="side-section">
