@@ -69,7 +69,8 @@
                 <p class="title"><%= offer.book.title %><br>
                   <span class="author"><%= offer.book.author %></span><br>
                   <span class="author"><strong><%= offer.price.to_i%>¥</strong> per day</span>
-                  <span class="delete-button"><%= link_to offer_path(offer), data: { turbo_method: :delete, turbo_confirm: "Really?", bs_target: "#turbo-confirm", bs_toggle: "modal" } do %>
+                  <span class="condition border rounded-5 px-3 align-self-center fs-6"><%= offer.condition.humanize %></span>
+                  <span class="delete-button"><%= link_to offer_path(offer), data: { turbo_method: :delete, turbo_confirm: "Really?" } do %>
                       <i class="fa-solid fa-delete-left"></i></span></p>
                 <% end %>
               </div>
@@ -89,7 +90,7 @@
                     <span class="author"><strong>Total: <%= rental.price.to_i%>¥</strong></span><br>
                     <span class="author"><strong>From</strong> <%= rental.duration_start %> <strong>to</strong> <%= rental.duration_end %></span><br>
                     <span class="author"><strong>Rented by: <%=rental.user.first_name %> <%=rental.user.last_name%> </strong></span>
-                    <div class="d-flex gap-2">
+                    <div class="d-flex gap-2 position-relative">
                       <% if rental.pending? %>
                         <%= simple_form_for rental do |f| %>
                           <%= f.input :status, as: :hidden, input_html: { value: 'accepted'}, wrapper_html: { class: "d-none"} %>
@@ -106,6 +107,7 @@
                           <span class="author"><i class="fa-solid fa-circle color-dot-green"></i> <%= rental.status.capitalize%></span><br>
                         <% end %>
                       <% end %>
+                      <span class="condition border rounded-5 px-3 align-self-center fs-6 position-absolute bottom-0 end-0"><%= rental.offer.condition.humanize %></span>
                     </div>
                   </p>
                 </div>

@@ -6,7 +6,7 @@ class Offer < ApplicationRecord
   accepts_nested_attributes_for :book
 
   validates :price, presence: true
-  validates :book, presence: true
+  validates :book, presence: true, uniqueness: { scope: :user }
   validates :user, presence: true
 
   # search
@@ -21,4 +21,12 @@ class Offer < ApplicationRecord
         prefix: true
       }
     }
+
+  enum :condition, [:like_new, :very_good, :good, :acceptable]
+
+  def self.conditions_humanized
+    conditions.map do |key, value|
+      [key.humanize, key]
+    end
+  end
 end

@@ -2,7 +2,6 @@
 // use this photo as background image https://images.unsplash.com/photo-1614791962365-7590111b1b1c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80
 
 .hero {
-  // add a linear-gradient dark overlay to background image
   position: relative;
   height: 75vh;
   width: 100vw;
@@ -17,7 +16,6 @@
   border-radius: 8px;
   width: 55vw;
   height: 65vh;
-  // we want the hero-content to be on the right-side of the hero
   position: absolute;
   right: 28%;
   text-align: center;
@@ -89,47 +87,12 @@ input {
   color: #333;
 }
 
-// we want the placeholder text to go away when the input is active
 input:focus {
   outline: none;
   border: 1px solid $red;
   color: $red;
 }
 
-.btn.btn-primary-red {
-  background: $red;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 0.5rem 1rem;
-  font-size: 1.2rem;
-  font-weight: 700;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.btn.btn-primary-red:hover {
-  background: #333;
-  color: #fff;
-}
-
-.btn.btn-primary-black {
-  background: #333;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 0.5rem 1rem;
-  font-size: 0.8rem;
-  font-weight: 400;
-  font-family: 'Montserrat', sans-serif;
-  align-self: center;
-}
-
-.btn.btn-primary-black:hover {
-  background: rgb(230, 70, 70);
-  color: #fff;
-}
-
-// we need some media queries to make the hero responsive
 @media (max-width: 1383px) {
   .hero {
     height: 100vh;
@@ -148,7 +111,6 @@ input:focus {
 }
 
 @media (max-width: 1050px) {
-  // switch to one column with card at below the hero
   .hero {
     width: 100vw;
   }

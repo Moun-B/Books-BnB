@@ -4,7 +4,7 @@ class OffersController < ApplicationController
     if params[:q].present?
       @offers = Offer.search(params[:q])
     else
-      @offers = Offer.all
+      @offers = policy_scope(Offer)
     end
   end
 
@@ -28,7 +28,7 @@ class OffersController < ApplicationController
     @offer.user = current_user
     authorize @offer
     if @offer.save
-      redirect_to dashboard_path(tag: 'offres')
+      redirect_to dashboard_path(tag: 'offers')
     else
       render :new, status: :unprocessable_entity
     end
@@ -44,6 +44,6 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:price, book_attributes: [:title, :year, :isbn, :author, :category, :description, :cover_url])
+    params.require(:offer).permit(:price, :condition, book_attributes: [:title, :year, :isbn, :author, :category, :description, :cover_url])
   end
 end
