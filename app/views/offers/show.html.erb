@@ -12,6 +12,7 @@
           Nostrum doloremque neque blanditiis eum officia. Ullam quas totam, numquam architecto omnis, pariatur repellendus possimus vel fuga saepe, nostrum est. Ut, maxime provident? Sed facere molestias qui cupiditate tempore. Eos.
           Obcaecati beatae sit ex eveniet unde enim atque. Possimus eveniet nihil voluptatem veniam maiores placeat, ab at, repellat distinctio mollitia totam.</p>
       </div>
+      <span class="condition border rounded-5 px-3 align-self-center"><%= @offer.condition.humanize %></span>
     </div>
     <div class="rental col-3 ms-3 py-3" data-controller="total-price">
       <p class="border-bottom text-center py-3"><span class="price-per-day">¥<span data-total-price-target="price"><%= @offer.price.truncate %></span></span> per day</p>

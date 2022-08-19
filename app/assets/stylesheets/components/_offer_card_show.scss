@@ -5,6 +5,7 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: flex-start;
+  position: relative;
 }
 
 .offer-card-show img {
@@ -36,6 +37,13 @@
 .offer-card-show .offer-card-show-info {
   // padding: 16px;
   flex: 1;
+}
+
+.offer-card-show .condition {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+
 }
 
 .rental {

@@ -75,7 +75,8 @@ puts "Creating offers..."
     Offer.create!(
       price: rand(99..399),
       book: book,
-      user: User.all.sample
+      user: User.all.sample,
+      condition: rand(0..3)
     )
   end
 end
