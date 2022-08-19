@@ -63,7 +63,8 @@ puts "Creating offers..."
   Offer.create!(
     price: rand(99..399),
     book: Book.all.sample,
-    user: User.all.sample
+    user: User.all.sample,
+    condition: rand(0..3)
   )
 end
 
