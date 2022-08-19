@@ -9,10 +9,9 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= favicon_link_tag asset_path('favicon.png') %>
   </head>
-
   <%# NOTE: shared/ is now application so just render with the partial name %>
-
   <body>
+    <%= render 'popup_modal' %>
     <%= render 'navbar' %>
     <%= render 'flashes' %>
     <div class="content">

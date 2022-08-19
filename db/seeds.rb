@@ -61,7 +61,7 @@ puts "Created #{Book.count} books!"
 puts "Creating offers..."
 10.times do
   Offer.create!(
-    price: rand(99..399),
+    price: rand(40..99),
     book: Book.all.sample,
     user: User.all.sample
   )

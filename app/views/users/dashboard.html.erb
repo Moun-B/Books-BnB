@@ -69,7 +69,7 @@
                 <p class="title"><%= offer.book.title %><br>
                   <span class="author"><%= offer.book.author %></span><br>
                   <span class="author"><strong><%= offer.price.to_i%>¥</strong> per day</span>
-                  <span class="delete-button"><%= link_to offer_path(offer), data: { turbo_method: :delete, turbo_confirm: "Really?" } do %>
+                  <span class="delete-button"><%= link_to offer_path(offer), data: { turbo_method: :delete, turbo_confirm: "Really?", bs_target: "#turbo-confirm", bs_toggle: "modal" } do %>
                       <i class="fa-solid fa-delete-left"></i></span></p>
                 <% end %>
               </div>
