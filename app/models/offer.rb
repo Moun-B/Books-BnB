@@ -21,4 +21,6 @@ class Offer < ApplicationRecord
         prefix: true
       }
     }
+
+  enum :condition, [:like_new, :very_good, :good, :acceptable]
 end
