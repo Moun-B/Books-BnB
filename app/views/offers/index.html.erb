@@ -1,7 +1,7 @@
 <div class="container">
   <h3 class="card-title-header">View All Offers</h3>
   <hr>
-  <%= form_tag offers_path, method: :get, class: "d-grid col-6 mx-auto" do %>
+  <%= form_tag offers_path, method: :get, class: "d-grid col-6 align-content-start m-4" do %>
     <%= text_field_tag :q,
       params[:q],
       class: "form-control search-field",
@@ -23,7 +23,7 @@
           <p class="catch-copy">Click here to search our database for your book!</p>
           <div class="side-section-content">
             <%= form_with url: booksearch_url, method: :get do |form| %>
-              <%= form.text_field :query, placeholder: 'Search title, author, ISBN', class: "search-field" %>
+              <%= form.text_field :query, placeholder: 'Enter title, author, or ISBN', class: "search-field" %>
               <%= form.submit "Find My Book", class: "btn btn-primary-black" %>
             <% end %>
           </div>
