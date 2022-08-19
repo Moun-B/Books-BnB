@@ -15,7 +15,7 @@
             <% if @user.first_name.nil? && @user.last_name.nil? %>
               Your profile
             <% else %>
-              <%= "#{@user.first_name} #{@user.last_name.nil?}" %>
+              <%= "#{@user.first_name} #{@user.last_name}" %>
             <% end %>
           </div>
           <div class="desc">
