@@ -69,6 +69,7 @@ puts "Created #{Book.count} books!"
 
 # Create offers that have many rentals and belongs_to a book and a user
 puts "Creating offers..."
+
 2.times do
   Book.all.each do |book|
     Offer.create!(
