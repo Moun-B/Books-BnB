@@ -7,9 +7,6 @@ import { application } from "./application"
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import SideSearchController from "./side_search_controller"
-application.register("side-search", SideSearchController)
-
 import TabdashboardController from "./tabdashboard_controller"
 application.register("tabdashboard", TabdashboardController)
 
