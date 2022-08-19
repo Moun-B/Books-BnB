@@ -31,7 +31,7 @@ class Rental < ApplicationRecord
   end
 
   def not_same_user
-    if rental.user == rental.offer.user
+    if user == offer.user
       errors.add(:user, "User can't be offerer")
     end
   end
