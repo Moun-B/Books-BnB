@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row gx-5 gap-3 justify-content-center">
-    <div class="offer-card-show col-8">
+    <div class="offer-card-show col-8 mb-3">
       <%= image_tag @book.cover_url, alt: "text" %>
       <div class="h-100 pb-3 d-flex flex-column justify-content-between">
         <div class="offer-card-show-info">
@@ -15,9 +15,9 @@
   </div>
   <div class="row justify-content-center">
     <%= simple_form_for([@book, @offer], html: { class: "col-8"}) do |f| %>
-      <%= f.input :condition, as: :radio_buttons, collection: Offer.conditions_humanized, label_method: :first, value_method: :second, include_blank: false %>
-      <%= f.input :price %>
-      <%= f.button :submit, class: "rental-button" %>
+      <%= f.input :condition, collection: Offer.conditions_humanized, label_method: :first, value_method: :second, include_blank: false %>
+      <%= f.input :price, label: 'Price (¥)' %>
+      <%= f.button :submit, class: "create-offer-button" %>
     <% end %>
   </div>
 </div>

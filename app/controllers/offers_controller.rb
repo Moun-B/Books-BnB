@@ -28,7 +28,7 @@ class OffersController < ApplicationController
     @offer.user = current_user
     authorize @offer
     if @offer.save
-      redirect_to dashboard_path(tag: 'offres')
+      redirect_to dashboard_path(tag: 'offers')
     else
       render :new, status: :unprocessable_entity
     end
