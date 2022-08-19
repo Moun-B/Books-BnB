@@ -8,8 +8,9 @@
       <span class="author"><%= offer.book.author %></span>
     </p>
   </div>
-  <div id='price-tag'>
-    <span>¥ <%= offer.price.to_i %></span>
+  <div class="d-flex justify-content-between align-content-center">
+    <span id='price-tag' class="pt-2">¥ <%= offer.price.to_i %></span>
+    <span class="condition border rounded-5 px-3 align-self-center"><%= offer.condition.humanize %></span>
   </div>
   <%= link_to 'Check Offer', offer_path(offer), class: 'btn btn-primary-red mt-3 mb-3' %>
 </div>
