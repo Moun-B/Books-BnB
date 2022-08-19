@@ -8,7 +8,7 @@
             <% if @user.photo.present? %>
               <img src="<%=@user.photo%>" alt="">
             <% else %>
-              <%= image_tag "mounir.jpeg", alt: "" %>
+              <%= image_tag "https://avatars.githubusercontent.com/u/107523103?v=4", alt: "" %>
             <% end %>
           </div>
           <div class="name">
@@ -33,7 +33,7 @@
                 <span><%= @user.offers.length %></span>
                 Offers
               </div>
-              <div class="border"></div>
+              <div class="bordere"></div>
               <div class="item">
                 <span><%= @user.rentals.length %></span>
                 Rentals
