@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-3"></div>
     <div class="col-6 side-section  sticky-top">
-      <%= form_with url: booksearch_url, class: "d-flex", method: :get do |form| %>
-        <%= form.text_field :query, placeholder: 'Another search...', class: "search-field flex-grow-3 mr-3", value: @query.gsub('+', ' ') %>
-        <%= form.submit "Find", class: "btn btn-primary-red btn-sm w-25 ml-3" %>
+      <%= form_with url: booksearch_url, class: "d-flex gap-4 align-items-center", method: :get do |form| %>
+        <%= form.text_field :query, placeholder: 'Try Again...', class: "search-field flex-grow-3 text-dark", value: @query.gsub('+', ' ') %>
+        <%= form.submit "Find", class: "btn btn-primary-red w-25 m-0" %>
       <% end %>
     </div>
     <div class="col-3"></div>
