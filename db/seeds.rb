@@ -34,9 +34,19 @@ User.destroy_all
 
 puts "Creating users..."
 User.create!(email: "kyle@books.com", password: "password", first_name: "Kyle", last_name: "Booktastic", address: "Dotombori, Osaka")
-User.create!(email: "mounir@books.com", password: "password", first_name: "Mounir", last_name: "Booksalot", address: "Shibuya, Tokyo")
+mounir = User.create!(email: "mounir@books.com", password: "password", first_name: "Mounir", last_name: "Booksalot", address: "Shibuya, Tokyo")
 User.create!(email: "soufiane@books.com", password: "password", first_name: "Souffiane", last_name: "Booker", address: "Naha, Okinawa")
 User.create!(email: "mark@books.com", password: "password", first_name: "Mark", last_name: "Bookman", address: "Kamakura, Kanagawa")
+
+20.times do
+  User.create!(
+    email: Faker::Internet.email,
+    password: "password",
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    address: Faker::Address.full_address
+  )
+end
 puts "Created #{User.count} users!"
 
 puts "Creating books..."
@@ -59,27 +69,54 @@ puts "Created #{Book.count} books!"
 
 # Create offers that have many rentals and belongs_to a book and a user
 puts "Creating offers..."
-10.times do
-  Offer.create!(
-    price: rand(99..399),
-    book: Book.all.sample,
-    user: User.all.sample
-  )
+2.times do
+  Book.all.each do |book|
+    Offer.create!(
+      price: rand(99..399),
+      book: book,
+      user: User.all.sample
+    )
+  end
 end
 
 puts "Created #{Offer.count} offers!"
 
 puts "Creating rentals..."
-10.times do
-  Rental.create!(
-    duration_start: Faker::Date.between(from: Date.today, to: 1.month.from_now),
-    duration_end: Faker::Date.between(from: Date.today, to: 2.months.from_now),
-    status: rand(0..2),
-    offer: Offer.all.sample,
-    user: User.all.sample
-  )
-end
 
+puts "created the first one"
+
+
+      Rental.create!(
+        duration_start: Date.today,
+        duration_end: Date.new(2022,8,25),
+        status: rand(0..2),
+        offer: Offer.all.sample,
+        user: mounir
+      )
+
+      Rental.create!(
+        duration_start: Faker::Date.between(from: Date.today, to: 1.month.from_now),
+        duration_end: Faker::Date.between(from: Date.today, to: 2.months.from_now),
+        status: rand(0..2),
+        offer: Offer.all.sample,
+        user: mounir
+      )
+
+      Rental.create!(
+        duration_start: Faker::Date.between(from: Date.today, to: 1.month.from_now),
+        duration_end: Faker::Date.between(from: Date.today, to: 2.months.from_now),
+        status: rand(0..2),
+        offer: Offer.all.sample,
+        user: mounir
+      )
+
+      Rental.create!(
+        duration_start: Faker::Date.between(from: Date.today, to: 1.month.from_now),
+        duration_end: Faker::Date.between(from: Date.today, to: 2.months.from_now),
+        status: rand(0..2),
+        offer: Offer.all.sample,
+        user: mounir
+      )
 puts "Created #{Rental.count} rentals!"
 
 puts "Seeding complete!"
