@@ -44,6 +44,6 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:price, book_attributes: [:title, :year, :isbn, :author, :category, :description, :cover_url])
+    params.require(:offer).permit(:price, :condition, book_attributes: [:title, :year, :isbn, :author, :category, :description, :cover_url])
   end
 end
