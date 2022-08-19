@@ -6,7 +6,7 @@
           <% if @user.photo.present? %>
             <img src="<%=@user.photo%>" alt="avatar">
           <% else %>
-            <img src="https://www.pngmart.com/files/21/Account-Avatar-Profile-PNG-Photo.png" alt="avatar">
+            <%= image_tag 'mounir.jpeg', alt: "text" %>
           <% end %>
           <button type="button" class="btn btn-secondary btn-sm">Edit Profil</button>
           <% if @user.first_name.nil? && @user.last_name.nil? %>
