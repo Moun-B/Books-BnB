@@ -1,0 +1,21 @@
+<div class="dashboard-card">
+        <div class="d-flex flex-column align-items-center gap-3">
+          <% if @user.photo.present? %>
+            <img src="<%=@user.photo%>" alt="avatar">
+          <% else %>
+            <img src="https://www.pngmart.com/files/21/Account-Avatar-Profile-PNG-Photo.png" alt="avatar">
+          <% end %>
+          <button type="button" class="btn btn-secondary btn-sm">Edit Profil</button>
+          <% if @user.first_name.nil? && @user.last_name.nil? %>
+            <h3>Your profile</h3>
+          <% else %>
+            <h3><%= "#{@user.first_name} #{@user.last_name}" %></h3>
+          <% end %>
+        </div>
+        <div class="d-flex flex-column align-items-center gap-3">
+          <p class="dashboard-card-title"><%= @user.email %></p>
+          <p>Address:<%= @user.address %></p>
+          <p>Number of offers: <%= @user.offers.length %></p>
+          <p>Number of rentals: <%= @user.rentals.length %></p>
+        </div>
+      </div>
