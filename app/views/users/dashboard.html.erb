@@ -43,16 +43,16 @@
             </div>
             <div class="description">
               <p class="title"><%= rental.offer.book.title %><br>
-              <span class="author"><strong>Total: <%= rental.price.to_i%>¥</strong></span><br>
-              <span class="author"><strong>From</strong> <%= rental.duration_start %> <strong>to</strong> <%= rental.duration_end %></span><br>
-              <span class="author"><strong>Lent by: <%=rental.offer.user.first_name %> <%=rental.offer.user.last_name%></strong></span><br>
-              <% if rental.status == "rejected" %>
-                <span class="author pt-2"><i class="fa-solid fa-circle color-dot-red"></i> <%= rental.status.capitalize%></span><br>
-              <% elsif rental.status == "accepted" %>
-                <span class="author"><i class="fa-solid fa-circle color-dot-green"></i> <%= rental.status.capitalize%></span><br>
-              <% elsif rental.status == "pending" %>
-                <span class="author"><i class="fa-solid fa-circle color-dot-orange"></i> <%= rental.status.capitalize%></span><br>
-              <% end %></p>
+                <span class="author"><strong>Total: <%= rental.price.to_i%>¥</strong></span><br>
+                <span class="author"><strong>From</strong> <%= rental.duration_start %> <strong>to</strong> <%= rental.duration_end %></span><br>
+                <span class="author"><strong>Lent by: <%=rental.offer.user.first_name %> <%=rental.offer.user.last_name%></strong></span><br>
+                <% if rental.status == "rejected" %>
+                  <span class="author pt-2"><i class="fa-solid fa-circle color-dot-red"></i> <%= rental.status.capitalize%></span><br>
+                <% elsif rental.status == "accepted" %>
+                  <span class="author"><i class="fa-solid fa-circle color-dot-green"></i> <%= rental.status.capitalize%></span><br>
+                <% elsif rental.status == "pending" %>
+                  <span class="author"><i class="fa-solid fa-circle color-dot-orange"></i> <%= rental.status.capitalize%></span><br>
+                <% end %></p>
             </div>
           </div>
         <% end %>
@@ -122,11 +122,12 @@
             </div>
             <div class="description">
               <p class="title"><%= book.title %><br>
-              <span class="author"><%= book.author %></span><br></p>
+                <span class="author"><%= book.author %></span><br>
+              </p>
             </div>
           </div>
         <% end %>
-      <% end %>
-    </div>
+      </div>
     </div>
   </div>
+</div>
