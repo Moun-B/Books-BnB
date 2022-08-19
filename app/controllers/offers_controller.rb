@@ -1,7 +1,6 @@
 class OffersController < ApplicationController
   def index
     @offers = policy_scope(Offer)
-
     if params[:q].present?
       @offers = Offer.search(params[:q])
     else
