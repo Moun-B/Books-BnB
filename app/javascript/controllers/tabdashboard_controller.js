@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="tabdashboard"
 export default class extends Controller {
-  static targets = [ "tabBook", "tabRental", "tabOffer", "tab", "cardsRental", "cardsOffer", "cardsBook", "cards" ]
+  static targets = [ "tabBook", "tabRental", "tabOffer", "tab"]
 
   toggle(event) {
     this.tabTargets.forEach((t) => {t.classList.remove("active")});
