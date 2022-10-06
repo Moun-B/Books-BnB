@@ -1,9 +1,16 @@
+.row-card-container {
+  max-width: 850px;
+  margin-top: 8px;
+}
+
 .home-book-card {
   position: relative;
   display: inline-block;
   width: 265px;
   box-shadow: 0 0 8px rgba(80, 79, 79, 0.158);
-  margin: 25px;
+  // margin: 25px;
+  margin: 8px;
+
   padding: 10px 10px 0 10px;
   vertical-align: top;
   transition: height 1s;
@@ -45,8 +52,8 @@
 }
 
 .home-cover-img {
-  height: 400px;
-  width: 240px;
+  height: 310px;
+  width: 200px;
   border-radius: 4px;
   overflow: hidden;
 }
